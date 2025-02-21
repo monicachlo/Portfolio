@@ -1,19 +1,11 @@
-# Resident Advocate by Hunter Warfield Power BI IMS & Report
+# Portfolio Repository
 
-## Overview
-This Power BI report analyzes the amount of direct disputes Resident Advocate gets and provides the tools to extract the accounts so that agents can work on them.
+This repository contains my work in **Power BI**, **Power Automate**, and **Power Apps**.
 
-## Files Structure
-- **Report:** `RA IMS.pbix`
--**Template:** `RA IMS.pbit`
--**Queries:** `/queries/`
--**DAX Measures:** `/dax/`
--**Data Dictionary:** `/docs/Data_Dictionary.xlsx`
--**Screenshots:** `/images/`
+## Power BI Reports
+- **[RA IMS](PowerBI/RA IMS/README.md)**
 
-## Data Sources
-- SQL Server (`CRS_Interface`)
-- SQL Server (`crs5_oltp_replicated`)
+## Power Automate Flows
 
-## Version History
-- **v1.0** - Initial release
+
+## Power Apps Projects
