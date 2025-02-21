@@ -1,0 +1,1 @@
+CSReview_Age = CALCULATE(TODAY()-SUM('RA Accounts'[CSReview_Date].[Date]))

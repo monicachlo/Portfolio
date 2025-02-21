@@ -1,0 +1,8 @@
+ramailhd_cond = 
+IF(
+    ('RA Accounts'[Status Code] = "F-RADSPN") 
+    && ('RA Accounts'[RAMailHd_Age] <= 5)
+    && ('RA Accounts'[RAMailHd] = 1),
+    0,  -- Exclude F-RADSPN if all conditions are met
+    1   -- Include all other cases
+)

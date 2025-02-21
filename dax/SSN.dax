@@ -1,0 +1,1 @@
+SSN_Avlbl = IF('RA Accounts'[SSN]=BLANK(),0,1)

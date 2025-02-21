@@ -1,0 +1,1 @@
+ITag_Age = IF('RA Accounts'[Assigned Tag Date]=BLANK(),BLANK(),CALCULATE(today()-sum('RA Accounts'[Assigned Tag Date].[Date])))

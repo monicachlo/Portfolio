@@ -1,0 +1,7 @@
+boc_radspn = 
+IF(
+    ('RA Accounts'[Status Code] = "F-RABOC" || 'RA Accounts'[Status Code] = "F-RADSPN") 
+    && 'RA Accounts'[Desk_Age] <= 2,
+    0,  -- Exclude F-RABOC and F-RADSPN if Desk_Age is not greater than 2
+    1   -- Include all other cases
+)

@@ -1,0 +1,10 @@
+Assigned Agent = 
+SWITCH(
+    'RA Accounts'[Queue],
+    1, "Analyst 01",
+    2, "Analyst 02",
+    3, "Analyst 03",
+    4, "Analyst 04",
+    5, "Analyst 05",
+    "Unknown"  -- Default case if the value doesn't match any condition
+)

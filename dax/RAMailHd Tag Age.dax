@@ -1,0 +1,1 @@
+RAMailHd_Age = CALCULATE(TODAY()-SUM('RA Accounts'[RAMailHd_Date].[Date]))

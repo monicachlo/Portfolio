@@ -1,0 +1,8 @@
+Final_Status = 
+SWITCH(
+    'RA Accounts'[Status Code], 
+    "F-BKHld", "Awaiting Court",
+    "F-RABK", "Pending Review",
+    "F-RADCD", IF('RA Accounts'[Desk_Age] > 29, "Revision Needed", "Aging"),
+    'RA Accounts'[Status Code] // Default case: Keep original value
+)

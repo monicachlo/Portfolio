@@ -1,0 +1,1 @@
+Desk_Age = CALCULATE(TODAY()-SUM('RA Accounts'[Assigned Date].[Date]))

@@ -1,0 +1,9 @@
+Stage = 
+SWITCH(
+    TRUE(),
+    ISBLANK('RA Accounts'[I-tag]), "Pending Review",
+    'RA Accounts'[I-tag] IN {"I-DocReq", "I-DPVOut", "I-MiscRq", "I-SIFReq"}, "Info Requested",
+    'RA Accounts'[I-tag] IN {"I-Cmplt", "I-DocCF", "I-DPVNo", "I-DPVYes", "I-SIFDen", "I-SIFYes", "I-DpRvNo"}, "Client Fulfilled",
+    'RA Accounts'[I-tag] IN {"I-DocNF", "I-INCMPL"}, "Client Unfulfilled",
+    "Unknown"  -- Default case for unmatched I-tag values
+)
