@@ -5,11 +5,11 @@ This Power BI report analyzes the amount of direct disputes Resident Advocate ge
 
 ## Files Structure
 - **Report:** `RA IMS.pbix`
--**Template:** `RA IMS.pbit`
--**Queries:** `/queries/`
--**DAX Measures:** `/dax/`
--**Data Dictionary:** `/docs/Data_Dictionary.xlsx`
--**Screenshots:** `/images/`
+- **Template:** `RA IMS.pbit`
+- **Queries:** `/queries/`
+- **DAX Measures:** `/dax/`
+- **Data Dictionary:** `/docs/Data_Dictionary.xlsx`
+- **Screenshots:** `/images/`
 
 ## Data Sources
 - SQL Server (`CRS_Interface`)
