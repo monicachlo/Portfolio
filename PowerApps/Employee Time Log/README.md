@@ -1,7 +1,7 @@
 # Employee Time Log Power App
 
 ## Overview
-This Power App helps record logging times for employees
+This Power App helps record logging times for employees.
 
 ## Files Structure
 - **Raw Power Apps Export:** `EmployeeTimeLog.zip`
