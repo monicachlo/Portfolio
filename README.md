@@ -9,5 +9,5 @@ This repository contains my work in **Power BI**, **Power Automate**, and **Powe
 
 
 ## Power Apps Projects
-- **[Employee Time Log](PowerApps/Employee Time Log/README.md)**
-- **[Quality Control Evaluations](PowerApps/Quality Control Evaluations/README.md)**
+- **[EmployeeTimeLog](PowerApps/EmployeeTimeLog/README.md)**
+- **[QualityControlEvaluations](PowerApps/QualityControlEvaluations/README.md)**
