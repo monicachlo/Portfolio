@@ -1,0 +1,3 @@
+Set(VODQCQuestionValue, Round(100/11,2)); 
+Set(ImgQCQuestionValue, Round(100/4,2));
+Set(UDPQCQuestionValue, Round(100/7,2));

@@ -1,0 +1,58 @@
+With(
+    {
+        answers: [
+            {
+                Value: DataCardValue23_1.Selected.Value,
+                Points: If(DataCardValue23_1.Selected.Value = "Yes", 1, If(DataCardValue23_1.Selected.Value = "No", 0, Blank()))
+            },
+            {
+                Value: DataCardValue24_1.Selected.Value,
+                Points: If(DataCardValue24_1.Selected.Value = "Yes", 0, If(DataCardValue24_1.Selected.Value = "No", 1, Blank()))
+            },
+            {
+                Value: DataCardValue25_1.Selected.Value,
+                Points: If(DataCardValue25_1.Selected.Value = "Yes", 1, If(DataCardValue25_1.Selected.Value = "No", 0, Blank()))
+            },
+            {
+                Value: DataCardValue26_1.Selected.Value,
+                Points: If(DataCardValue26_1.Selected.Value = "Yes", 1, If(DataCardValue26_1.Selected.Value = "No", 0, Blank()))
+            },
+            {
+                Value: DataCardValue27_1.Selected.Value,
+                Points: If(DataCardValue27_1.Selected.Value = "Yes", 1, If(DataCardValue27_1.Selected.Value = "No", 0, Blank()))
+            },
+            {
+                Value: DataCardValue28_1.Selected.Value,
+                Points: If(DataCardValue28_1.Selected.Value = "Yes", 1, If(DataCardValue28_1.Selected.Value = "No", 0, Blank()))
+            },
+            {
+                Value: DataCardValue29_1.Selected.Value,
+                Points: If(DataCardValue29_1.Selected.Value = "Yes", 1, If(DataCardValue29_1.Selected.Value = "No", 0, Blank()))
+            },
+            {
+                Value: DataCardValue33.Selected.Value,
+                Points: If(DataCardValue33.Selected.Value = "Yes", 1, If(DataCardValue33.Selected.Value = "No", 0, Blank()))
+            },
+            {
+                Value: DataCardValue34.Selected.Value,
+                Points: If(DataCardValue34.Selected.Value = "Yes", 1, If(DataCardValue34.Selected.Value = "No", 0, Blank()))
+            },
+            {
+                Value: DataCardValue35.Selected.Value,
+                Points: If(DataCardValue35.Selected.Value = "Yes", 1, If(DataCardValue35.Selected.Value = "No", 0, Blank()))
+            }
+        ]
+    },
+    // Calculate the total score
+    CountRows(
+        Filter(
+            answers,
+            Points = 1
+        )
+    ) / CountRows(
+        Filter(
+            answers,
+            Value <> "N/A"
+        )
+    ) * 100
+)

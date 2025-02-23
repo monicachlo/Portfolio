@@ -1,0 +1,54 @@
+# Data Sources Used in EmployeeTimeLog
+
+## 1. SharePoint List: QC Accuracy VODQC
+- **Columns:**
+  - `Account Number` (Text)
+  - `User` (Lookup)
+  - `Agent` (Lookup)
+  - `Did the rep review if address in the system was valid (If address is vacant)?` (Choice)
+  - `Did the QC Auditor review that the balance in account matches the documents being sent?` (Choice)
+  - `Did the QC auditor confirm agreement is signed by all applicable parties?` (Choice)
+  - `Did the QC auditor confirm the documentation matched the name of the party to whom documents are being sent?` (Choice)
+  - `Did rep move the invalid PDF file to the correct folder?` (Choice)
+  - `Did the QC auditor classify properly the VOD file?` (Choice)
+  - `Was the file status updated in letter repository?` (Choice)
+  - `Did rep add the error to the SharePoint list?` (Choice)
+  - `Are the notes clear and accurate?` (Choice)
+  - `Was the proper Action/Result code combination used?` (Choice)
+  - `Did the agent secure all necessary consumers?` (Choice)
+  - `Score` (Number)
+  - `Feedback` (Multiline)
+  - `Email Address` (Lookup)
+
+## 2. SharePoint List: QC Accuracy ImageQC
+- **Columns:**
+  - `Account Number` (Text)
+  - `User` (Lookup)
+  - `Agent` (Lookup)
+  - `Did the QC auditor confirm all required images were tagged properly?` (Choice)
+  - `Did the agent add/update the correct consumer information? SSN/DOB, Email, Phone #` (Choice)
+  - `Was the proper Action/Result code combination used?` (Choice)
+  - `Did the notes reflect the actions that were taken by the QC Auditor?` (Choice)
+  - `Score` (Number)
+  - `Feedback` (Multiline)
+  - `Email Address` (Lookup)
+
+## 3. SharePoint List: QC Accuracy UDPQC
+- **Columns:**
+  - `Account Number` (Text)
+  - `User` (Lookup)
+  - `Agent` (Lookup)
+  - `Did the rep review if address in the system was valid (If address is vacant)?` (Choice)
+  - `Did the QC Auditor confirm proper docs were requested?` (Choice)
+  - `Were the requested documents already on file?` (Choice)
+  - `Did the QC Auditor properly determine if UDP was needed?` (Choice)
+  - `Did the auditor determine if the correct UDP type was opened?` (Choice)
+  - `Did the QC Auditor confirm proper I-tag was added?` (Choice)
+  - `In case corrections were needed, did the QC auditor perform proper corrections to the UDP Case?` (Choice)
+  - `Did the notes reflect the actions that were taken by the QC Auditor?` (Choice)
+  - `Did the QC auditor properly evaluate the memo information?` (Choice)
+  - `Did the QC auditor make the appropiate corrections?` (Choice)
+  - `Did the QC auditor understand the complete trajectory of the account to evaluate the UDP?` (Choice)
+  - `Score` (Number)
+  - `Feedback` (Multiline)
+  - `Email Address` (Lookup)

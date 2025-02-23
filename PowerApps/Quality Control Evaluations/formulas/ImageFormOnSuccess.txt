@@ -1,0 +1,2 @@
+Notify("Your form has been submitted successfully!", NotificationType.Success);
+ResetForm(ImageQCForm);

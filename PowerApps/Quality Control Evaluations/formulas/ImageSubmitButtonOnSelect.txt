@@ -1,0 +1,27 @@
+// Submit the form data
+SubmitForm(ImageQCForm);
+
+// Add a small delay (optional but useful for timing issues)
+If(
+    ImageQCForm.Valid, // Ensure the form is valid before proceeding
+    // Patch function to update the Score field in SharePoint
+    Patch(
+        'QC Accuracy ImageQC',  // SharePoint list name
+        ImageQCForm.LastSubmit,  // Reference the last submitted record
+        {
+            // Calculate and update the Score field
+            Score: With(
+                {
+                    answers: [
+                        DataCardValue18_1.Selected.Value,
+                        DataCardValue19_1.Selected.Value,
+                        DataCardValue20_1.Selected.Value,
+                        DataCardValue14.Selected.Value
+                    ]
+                },
+                // Calculate the score based on "Yes" answers and ignoring "N/A"
+                CountRows(Filter(answers, Value = "Yes")) / CountRows(Filter(answers, Value <> "N/A")) * 100
+            )
+        }
+    )
+)

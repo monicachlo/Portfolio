@@ -1,0 +1,1 @@
+Value(DataCardValue12.Value) < 100

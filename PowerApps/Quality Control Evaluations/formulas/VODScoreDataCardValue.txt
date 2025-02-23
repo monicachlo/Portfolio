@@ -1,0 +1,29 @@
+With(
+    {
+        answers: [
+            DataCardValue2.Selected.Value,
+            DataCardValue3.Selected.Value,
+            DataCardValue4.Selected.Value,
+            DataCardValue5.Selected.Value,
+            DataCardValue6.Selected.Value,
+            DataCardValue7.Selected.Value,
+            DataCardValue8.Selected.Value,
+            DataCardValue9.Selected.Value,
+            DataCardValue10.Selected.Value,
+            DataCardValue16.Selected.Value,
+            DataCardValue15.Selected.Value
+        ]
+    },
+    // Count number of "Yes" answers
+    CountRows(
+        Filter(
+            answers,
+            Value = "Yes"
+        )
+    ) / CountRows(
+        Filter(
+            answers,
+            Value <> "N/A"
+        )
+    ) * 100
+)
