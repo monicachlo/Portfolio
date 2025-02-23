@@ -15,7 +15,7 @@ This Power Automate Flow automatically sends daily reminder emails for upcoming 
 - **Actions:**  
   - Check the list of tasks.
   - Filters tasks that are due in 3 days.
-  - If yes, sends email reminder that task is due soon.
+  - Sends email reminder that task is due soon.
 
 ## 🔗 Connections  
 - **Outlook**
