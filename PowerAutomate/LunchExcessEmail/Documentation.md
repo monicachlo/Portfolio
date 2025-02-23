@@ -7,7 +7,7 @@ This Power Automate Flow automatically sends an email when an employee exceeds t
 - **Raw Power Automate Flow Export:** `LunchExcessEmail.zip`
 - **Screenshots:** `/images/`
 - **Exported JSON Definitions:** `/JSON/`
-- **Documentation.md:** `This file`
+- **Documentation:** `This file`
 
 ## 🚀 Flow Details  
 - **Trigger:** When an item is created or modified (Sharepoint)  

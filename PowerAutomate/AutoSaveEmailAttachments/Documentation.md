@@ -7,7 +7,7 @@ This Power Automate Flow automatically saves email attachments to a user's OneDr
 - **Raw Power Automate Flow Export:** `AutoSaveEmailAttachments.zip`
 - **Screenshots:** `/images/`
 - **Exported JSON Definitions:** `/JSON/`
-- **Documentation.md:** `This file`
+- **Documentation:** `This file`
 
 ## 🚀 Flow Details  
 - **Trigger:** When a new email arrives (V3) (Outlook)  

@@ -7,12 +7,12 @@ This Power Automate Flow automatically sends an email to users with feedback sub
 - **Raw Power Automate Flow Export:** `QualityControlEvaluation.zip`
 - **Screenshots:** `/images/`
 - **Exported JSON Definitions:** `/JSON/`
-- **Documentation.md:** `This file`
+- **Documentation:** `This file`
 
 ## 🚀 Flow Details  
 - **Trigger:** When an item is created or modified (Sharepoint)
 - **Actions:**  
-  - CInitialize array variable.
+  - Initialize array variable.
   - Checks if Score column value is less than 100.
   - If yes, gets the content of Feedback column value and sends an email to the employee with the feedback.
 

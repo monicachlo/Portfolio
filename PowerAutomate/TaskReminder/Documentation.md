@@ -8,7 +8,7 @@ This Power Automate Flow automatically sends daily reminder emails for upcoming 
 - **Screenshots:** `/images/`
 - **Exported JSON Definitions:** `/JSON/`
 - **Sample Data:** `/sampledata/TaskList.xlsx`
-- **Documentation.md:** `This file`
+- **Documentation:** `This file`
 
 ## 🚀 Flow Details  
 - **Trigger:** Recurrence (Runs at 8:00 every day)
