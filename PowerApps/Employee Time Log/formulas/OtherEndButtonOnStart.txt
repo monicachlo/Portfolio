@@ -1,0 +1,38 @@
+// Patch the latest other session to set the Other End time
+Patch('Other Log',
+    LookUp('Other Log', Agent.Value = User().FullName && Date = Today() && IsBlank('Other End Time')),
+    {
+        'Other End Time': Now()
+    }
+);
+
+// Set other end time variable
+Set(varOtherEndTime, Now()); 
+
+// Mark other as inactive
+Set(varOtherActive, false);
+
+// Refresh Other Data
+ClearCollect(colOtherForToday, 
+    Filter('Other Log', Agent.Value = User().FullName && Date = Today())
+);
+
+// Recalculate total other duration using SharePoint's calculated column
+Set(varTotalOtherDuration, 
+    Sum(colOtherForToday, 'Break Duration')
+);
+
+// Update Total Other Duration in SharePoint
+Patch('Other Log',
+    LookUp('Other Log', Agent.Value = User().FullName && Date = Today()),
+    {
+        'Total Other Duration': varTotalOtherDuration
+    }
+);
+
+Reset(OtherTimer);
+
+// Stop the other timer
+Set(varOtherTimerStart, false);
+
+

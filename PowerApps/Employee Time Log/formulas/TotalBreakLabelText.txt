@@ -1,0 +1,3 @@
+"Total Break: " & 
+Text(Int(If(IsBlank(varTotalBreakDuration), 0, varTotalBreakDuration) * 60), "0") & " minutes " & 
+Text(Mod(Round(If(IsBlank(varTotalBreakDuration), 0, varTotalBreakDuration) * 60, 0), 60), "0") & " seconds"

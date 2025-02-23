@@ -1,0 +1,1 @@
+"Lunch Time: " & Text(Time(0,0, LunchTimer.Value/1000), "hh:mm:ss")

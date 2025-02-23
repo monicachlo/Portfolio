@@ -1,0 +1,1 @@
+"Break Time: " & Text(Time(0,0, BreakTimer.Value/1000), "hh:mm:ss")

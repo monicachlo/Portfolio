@@ -1,0 +1,1 @@
+If(varBreakActive, true, false)

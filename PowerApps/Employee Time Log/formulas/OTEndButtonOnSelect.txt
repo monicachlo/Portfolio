@@ -1,0 +1,18 @@
+// Patch the latest OT session to set the OT End time
+Patch('OT Log',
+    LookUp('OT Log', Agent.Value = User().FullName && Date = Today() && IsBlank('OT End Time')),
+    {
+        'OT End Time': Now()
+    }
+);
+
+// Set OT end time variable
+Set(varOTEndTime, Now()); 
+
+// Mark OT as inactive
+Set(varOTActive, false);
+
+Reset(OTTimer);
+
+// Stop the OT timer
+Set(varOTTimerStart, false);

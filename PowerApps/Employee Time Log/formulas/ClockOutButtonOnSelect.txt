@@ -1,0 +1,19 @@
+// Update the Employee Time Tracking list to set the Clock-Out time
+Patch('Employee Time Tracking', 
+    LookUp('Employee Time Tracking', Agent.Value = User().FullName && Date = Today() && !IsBlank('Clock-In') && IsBlank('Clock-Out')),
+    {
+        'Clock-Out': Now()
+    }
+);
+
+// Set the clock-out time to the current time in the variable
+Set(varClockOutTime, Now()); 
+
+// Mark the session as inactive (for the current user/session)
+Set(varSessionActive, false); 
+
+// Reset the timer (reset Timer1 to start fresh if needed)
+Reset(Timer1); 
+
+// Stop the timer
+Set(varTimerStart, false);

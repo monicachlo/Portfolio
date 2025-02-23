@@ -1,0 +1,18 @@
+// Patch the latest meeting session to set the Meeting End time
+Patch('Meetings Log',
+    LookUp('Meetings Log', Agent.Value = User().FullName && Date = Today() && IsBlank('Meeting End Time')),
+    {
+        'Meeting End Time': Now()
+    }
+);
+
+// Set meeting end time variable
+Set(varMeetingEndTime, Now()); 
+
+// Mark meeting as inactive
+Set(varMeetingActive, false);
+
+Reset(MeetingTimer);
+
+// Stop the meeting timer
+Set(varMeetingTimerStart, false);

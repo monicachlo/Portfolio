@@ -1,0 +1,5 @@
+If(
+    varSessionActive, 
+    true, 
+    false
+)

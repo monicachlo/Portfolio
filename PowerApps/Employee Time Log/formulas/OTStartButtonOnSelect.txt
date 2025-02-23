@@ -1,0 +1,21 @@
+// Patch a new record in the OT Log list with the OT Start time
+Patch('OT Log', Defaults('OT Log'),
+  {
+    Agent: { 
+            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            Id: LookUp('FINAL ROSTER Accuracy', 'Email Address' = User().Email).ID,
+            Value: User().FullName
+    },
+    Date: Today(),
+    'OT Start Time': Now()
+  }
+);
+
+// Set OT start time variable
+Set(varOTStartTime, Now()); 
+
+// Mark the session as active
+Set(varOTActive, true);
+
+// Start the OT timer
+Set(varOTTimerStart, true);

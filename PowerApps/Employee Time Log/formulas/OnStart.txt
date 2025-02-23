@@ -1,0 +1,200 @@
+// Ensure the session data is fetched from SharePoint every time
+Set(varRecordForToday, 
+    LookUp('Employee Time Tracking', Agent.Value = User().FullName && Date = Today())
+);
+
+
+
+
+// ----------------------------------------------------------------------------------------------------
+
+// ----------CLOCK IN/OUT----------
+// Set the clock-in time based on the record for today (if it exists)
+Set(varClockInTime, If(
+    !IsBlank(varRecordForToday),
+    varRecordForToday.'Clock-In',
+    Blank()
+));
+
+// Set the session active state only if there's a clock-in time and no clock-out time (session still active)
+Set(varSessionActive, !IsBlank(varClockInTime) && IsBlank(varRecordForToday.'Clock-Out'));
+
+// Set the timer to continue from the clock-in time if it's available
+Set(varTimerStart, !IsBlank(varClockInTime));
+
+// Set the clock-out time based on the record for today (if it exists)
+Set(varClockOutTime, If(!IsBlank(varRecordForToday), varRecordForToday.'Clock-Out', Blank()));
+
+// ----------------------------------------------------------------------------------------------------
+
+// ----------LUNCH----------
+// Ensure Lunch Start and End Times are correctly retrieved
+Set(varLunchStartTime, If(
+    !IsBlank(varRecordForToday.'Lunch Start Time'),
+    varRecordForToday.'Lunch Start Time', 
+    Blank()
+));
+Set(varLunchEndTime, If(
+    !IsBlank(varRecordForToday.'Lunch End Time'), 
+    varRecordForToday.'Lunch End Time', 
+    Blank()
+));
+
+// Ensure lunch session remains active if it has started but not ended
+Set(varLunchActive, 
+    !IsBlank(varRecordForToday.'Lunch Start Time') && IsBlank(varRecordForToday.'Lunch End Time')
+);
+
+
+// ----------------------------------------------------------------------------------------------------
+
+// ---------BREAKS----------
+// Fetch today's break records
+ClearCollect(colBreaksForToday, 
+    Filter('Breaks Log', Agent.Value = User().FullName && Date = Today())
+);
+
+// Get the latest (most recent) break entry
+Set(varLatestBreak, 
+    First(SortByColumns(
+        Filter(colBreaksForToday, IsBlank('Break End Time')), 
+        "BreakStartTime", SortOrder.Descending
+    ))
+);
+
+// Set the break start and end times based on the latest active break
+Set(varBreakStartTime, 
+    If(!IsBlank(varLatestBreak) && !IsBlank(varLatestBreak.'Break Start Time'), varLatestBreak.'Break Start Time', Blank())
+);
+
+Set(varBreakEndTime, 
+    If(!IsBlank(varLatestBreak) && !IsBlank(varLatestBreak.'Break End Time'), varLatestBreak.'Break End Time', Blank())
+);
+
+// Determine if a break is currently active (started but not ended)
+Set(varBreakActive, !IsBlank(varBreakStartTime) && IsBlank(varBreakEndTime));
+
+
+// ----------------------------------------------------------------------------------------------------
+
+// ---------MEETINGS----------
+// Fetch today's meeting records
+ClearCollect(colMeetingsForToday, 
+    Filter('Meetings Log', Agent.Value = User().FullName && Date = Today())
+);
+
+// Get the latest (most recent) meeting entry
+Set(varLatestMeeting, 
+    First(SortByColumns(
+        Filter(colMeetingsForToday, IsBlank('Meeting End Time')), 
+        "MeetingStartTime", SortOrder.Descending
+    ))
+);
+
+
+// Set the meeting start and end times based on the latest active meeting
+Set(varMeetingStartTime, 
+    If(!IsBlank(varLatestMeeting) && !IsBlank(varLatestMeeting.'Meeting Start Time'), varLatestMeeting.'Meeting Start Time', Blank())
+);
+
+Set(varMeetingEndTime, 
+    If(!IsBlank(varLatestMeeting) && !IsBlank(varLatestMeeting.'Meeting End Time'), varLatestMeeting.'Meeting End Time', Blank())
+);
+
+// Determine if a meeting is currently active (started but not ended)
+Set(varMeetingActive, !IsBlank(varMeetingStartTime) && IsBlank(varMeetingEndTime));
+
+
+// ----------------------------------------------------------------------------------------------------
+
+// ---------BREAK DURATION----------
+Set(varTotalBreakDuration,
+    Sum(colBreaksForToday,'Break Duration')
+);
+
+// ----------------------------------------------------------------------------------------------------
+
+// ---------SYSTEM ISSUES----------
+// Fetch today's sys issues records
+ClearCollect(colSysIssForToday, 
+    Filter('System Issues Log', Agent.Value = User().FullName && Date = Today())
+);
+
+// Get the latest (most recent) sys entry
+Set(varLatestSysIss, 
+    First(SortByColumns(
+        Filter(colSysIssForToday, IsBlank('System Issues End Time')), 
+        "SystemIssuesStartTime", SortOrder.Descending
+    ))
+);
+
+// Set the sys start and end times based on the latest active sys
+Set(varSysStartTime, 
+    If(!IsBlank(varLatestSysIss) && !IsBlank(varLatestSysIss.'System Issues Start Time'), varLatestSysIss.'System Issues Start Time', Blank())
+);
+
+Set(varSysEndTime, 
+    If(!IsBlank(varLatestSysIss) && !IsBlank(varLatestSysIss.'System Issues End Time'), varLatestSysIss.'System Issues End Time', Blank())
+);
+
+// Determine if a sys is currently active (started but not ended)
+Set(varSysActive, !IsBlank(varSysStartTime) && IsBlank(varSysEndTime));
+
+
+// ----------------------------------------------------------------------------------------------------
+
+// ---------OT----------
+// Fetch today's OT records
+ClearCollect(colOTForToday, 
+    Filter('OT Log', Agent.Value = User().FullName && Date = Today())
+);
+
+// Get the latest (most recent) OT entry
+Set(varLatestOT, 
+    First(SortByColumns(
+        Filter(colOTForToday, IsBlank('OT End Time')), 
+        "OTStartTime", SortOrder.Descending
+    ))
+);
+
+// Set the OT start and end times based on the latest active OT
+Set(varOTStartTime, 
+    If(!IsBlank(varLatestOT) && !IsBlank(varLatestOT.'OT Start Time'), varLatestOT.'OT Start Time', Blank())
+);
+
+Set(varOTEndTime, 
+    If(!IsBlank(varLatestOT) && !IsBlank(varLatestOT.'OT End Time'), varLatestOT.'OT End Time', Blank())
+);
+
+// Determine if a OT is currently active (started but not ended)
+Set(varOTActive, !IsBlank(varOTStartTime) && IsBlank(varOTEndTime));
+
+// ----------------------------------------------------------------------------------------------------
+// ---------OTHER----------
+// Fetch today's other records
+ClearCollect(colOtherForToday, 
+    Filter('Other Log', Agent.Value = User().FullName && Date = Today())
+);
+
+// Get the latest (most recent) other entry
+Set(varLatestOther, 
+    First(SortByColumns(
+        Filter(colOtherForToday, IsBlank('Other End Time')), 
+        "OtherStartTime", SortOrder.Descending
+    ))
+);
+
+// Set the other start and end times based on the latest active other
+Set(varOtherStartTime, 
+    If(!IsBlank(varLatestOther) && !IsBlank(varLatestOther.'Other Start Time'), varLatestBreak.'Other Start Time', Blank())
+);
+
+Set(varOtherEndTime, 
+    If(!IsBlank(varLatestOther) && !IsBlank(varLatestOther.'Other End Time'), varLatestBreak.'Other End Time', Blank())
+);
+
+// Determine if a other is currently active (started but not ended)
+Set(varOtherActive, !IsBlank(varOtherStartTime) && IsBlank(varOtherEndTime));
+
+
+// ----------------------------------------------------------------------------------------------------

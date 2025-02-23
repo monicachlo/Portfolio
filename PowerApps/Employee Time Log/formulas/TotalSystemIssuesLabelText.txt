@@ -1,0 +1,3 @@
+"Total System Issues: " & 
+Text(Int(If(IsBlank(varTotalSysDuration), 0, varTotalSysDuration) * 60), "0") & " minutes " & 
+Text(Mod(Round(If(IsBlank(varTotalSysDuration), 0, varTotalSysDuration) * 60, 0), 60), "0") & " seconds"

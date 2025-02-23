@@ -1,0 +1,1 @@
+"Started System Issues at: " & Text(varSysStartTime, DateTimeFormat.ShortTime)

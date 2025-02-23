@@ -1,0 +1,38 @@
+// Patch the latest break session to set the Break End time
+Patch('Breaks Log',
+    LookUp('Breaks Log', Agent.Value = User().FullName && Date = Today() && IsBlank('Break End Time')),
+    {
+        'Break End Time': Now()
+    }
+);
+
+// Set break end time variable
+Set(varBreakEndTime, Now()); 
+
+// Mark break as inactive
+Set(varBreakActive, false);
+
+// Refresh Breaks Data
+ClearCollect(colBreaksForToday, 
+    Filter('Breaks Log', Agent.Value = User().FullName && Date = Today())
+);
+
+// Recalculate total break duration using SharePoint's calculated column
+Set(varTotalBreakDuration, 
+    Sum(colBreaksForToday, 'Break Duration')
+);
+
+// Update Total Break Duration in SharePoint
+Patch('Breaks Log',
+    LookUp('Breaks Log', Agent.Value = User().FullName && Date = Today()),
+    {
+        'Total Break Duration': varTotalBreakDuration
+    }
+);
+
+Reset(BreakTimer);
+
+// Stop the break timer
+Set(varBreakTimerStart, false);
+
+

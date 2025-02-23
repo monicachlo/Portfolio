@@ -1,0 +1,1 @@
+"System Issues Time: " & Text(Time(0,0, SysIssuesTimer.Value/1000), "hh:mm:ss")

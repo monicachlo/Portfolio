@@ -1,0 +1,5 @@
+"Total Other: " & 
+Text(Int(If(IsBlank(varTotalOtherDuration), 0, varTotalOtherDuration) * 60), "0") & " minutes " & 
+Text(Mod(Round(If(IsBlank(varTotalOtherDuration), 0, varTotalOtherDuration) * 60, 0), 60), "0") & " seconds"
+
+

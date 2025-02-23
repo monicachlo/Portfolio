@@ -1,0 +1,1 @@
+"Meeting Time: " & Text(Time(0,0, MeetingTimer.Value/1000), "hh:mm:ss")

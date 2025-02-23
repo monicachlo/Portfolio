@@ -1,0 +1,1 @@
+"Out for other: " & If(varOtherActive, "Yes", "No")

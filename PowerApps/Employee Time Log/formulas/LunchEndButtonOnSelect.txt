@@ -1,0 +1,18 @@
+// Patch the Employee Time Tracking list to set the Lunch End time
+Patch('Employee Time Tracking', 
+    LookUp('Employee Time Tracking', Agent.Value = User().FullName && Date = Today() && !IsBlank('Lunch Start Time') && IsBlank('Lunch End Time')),
+    {
+        'Lunch End Time': Now()
+    }
+);
+
+// Set the lunch end time to the current time
+Set(varLunchEndTime, Now()); 
+
+// Mark lunch as inactive
+Set(varLunchActive, false);
+
+Reset(LunchTimer);
+
+// Stop the lunch timer
+Set(varLunchTimerStart, false);

@@ -1,0 +1,38 @@
+// Patch the latest sys session to set the System Issues End time
+Patch('System Issues Log',
+    LookUp('System Issues Log', Agent.Value = User().FullName && Date = Today() && IsBlank('System Issues End Time')),
+    {
+        'System Issues End Time': Now()
+    }
+);
+
+// Set sys end time variable
+Set(varSysEndTime, Now()); 
+
+// Mark sys as inactive
+Set(varSysActive, false);
+
+// Refresh Sys Data
+ClearCollect(colSysIssForToday, 
+    Filter('System Issues Log', Agent.Value = User().FullName && Date = Today())
+);
+
+// Recalculate total sys duration using SharePoint's calculated column
+Set(varTotalSysDuration, 
+    Sum(colSysIssForToday, 'System Issues Duration')
+);
+
+// Update Total System Issues Duration in SharePoint
+Patch('System Issues Log',
+    LookUp('System Issues Log', Agent.Value = User().FullName && Date = Today()),
+    {
+        'Total System Issues': varTotalSysDuration
+    }
+);
+
+Reset(SysIssuesTimer);
+
+// Stop the sys timer
+Set(varSysTimerStart, false);
+
+

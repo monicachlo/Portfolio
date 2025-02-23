@@ -1,0 +1,1 @@
+"Started OT at: " & Text(varOTStartTime, DateTimeFormat.ShortTime)

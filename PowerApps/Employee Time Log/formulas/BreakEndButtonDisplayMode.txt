@@ -1,0 +1,5 @@
+If(
+    varSessionActive && varBreakActive, 
+    DisplayMode.Edit, 
+    DisplayMode.Disabled
+)

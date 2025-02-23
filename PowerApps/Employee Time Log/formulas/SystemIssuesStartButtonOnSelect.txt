@@ -1,0 +1,21 @@
+// Patch a new record in the System Issues Logs list with the Sys Start time
+Patch('System Issues Log', Defaults('System Issues Log'),
+  {
+    Agent: { 
+            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            Id: LookUp('FINAL ROSTER Accuracy', 'Email Address' = User().Email).ID,
+            Value: User().FullName
+    },
+    Date: Today(),
+    'System Issues Start Time': Now()
+  }
+);
+
+// Set sys start time variable
+Set(varSysStartTime, Now()); 
+
+// Mark the session as active
+Set(varSysActive, true);
+
+// Start the sys timer
+Set(varSysTimerStart, true);

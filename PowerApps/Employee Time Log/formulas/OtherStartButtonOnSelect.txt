@@ -1,0 +1,21 @@
+// Patch a new record in the Break Logs list with the Break Start time
+Patch('Other Log', Defaults('Other Log'),
+  {
+    Agent: { 
+            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            Id: LookUp('FINAL ROSTER Accuracy', 'Email Address' = User().Email).ID,
+            Value: User().FullName
+    },
+    Date: Today(),
+    'Other Start Time': Now()
+  }
+);
+
+// Set other start time variable
+Set(varOtherStartTime, Now()); 
+
+// Mark the session as active
+Set(varOtherActive, true);
+
+// Start the other timer
+Set(varOtherTimerStart, true);

@@ -1,0 +1,1 @@
+"Started Meeting at: " & Text(varMeetingStartTime,DateTimeFormat.ShortTime)

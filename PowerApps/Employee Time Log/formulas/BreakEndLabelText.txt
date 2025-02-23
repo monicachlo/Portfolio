@@ -1,0 +1,1 @@
+"Ended Break at: " & Text(varBreakEndTime, DateTimeFormat.ShortTime)

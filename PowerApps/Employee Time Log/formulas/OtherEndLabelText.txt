@@ -1,0 +1,1 @@
+"Ended Other at: " & Text(varOtherEndTime, DateTimeFormat.ShortTime)

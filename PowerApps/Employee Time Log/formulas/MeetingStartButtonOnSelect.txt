@@ -1,0 +1,21 @@
+// Patch a new record in the Meetings Log list with the Meeting Start time
+Patch('Meetings Log', Defaults('Meetings Log'),
+  {
+    Agent: { 
+            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+            Id: LookUp('FINAL ROSTER Accuracy', 'Email Address' = User().Email).ID,
+            Value: User().FullName
+    },
+    Date: Today(),
+    'Meeting Start Time': Now()
+  }
+);
+
+// Set meeting start time variable
+Set(varMeetingStartTime, Now()); 
+
+// Mark the session as active
+Set(varMeetingActive, true);
+
+// Start the meeting timer
+Set(varMeetingTimerStart, true);

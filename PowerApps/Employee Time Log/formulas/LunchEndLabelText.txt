@@ -1,0 +1,1 @@
+"Ended Lunch at: " & Text(varLunchEndTime, DateTimeFormat.ShortTime)

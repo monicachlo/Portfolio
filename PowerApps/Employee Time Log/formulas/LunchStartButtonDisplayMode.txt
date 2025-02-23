@@ -1,0 +1,10 @@
+If(
+    varSessionActive && 
+    !varLunchActive && 
+    !varBreakActive && 
+    !varMeetingActive &&
+    !varSysActive &&
+    IsBlank(LookUp('Employee Time Tracking', Agent.Value = User().FullName && Date = Today()).'Lunch Start Time'), 
+    DisplayMode.Edit, 
+    DisplayMode.Disabled
+)

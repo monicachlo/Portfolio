@@ -1,0 +1,1 @@
+"Other Time: " & Text(Time(0,0, OtherTimer.Value/1000), "hh:mm:ss")

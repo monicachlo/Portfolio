@@ -1,0 +1,5 @@
+If(
+    varSessionActive && varMeetingActive, 
+    DisplayMode.Edit, 
+    DisplayMode.Disabled
+)

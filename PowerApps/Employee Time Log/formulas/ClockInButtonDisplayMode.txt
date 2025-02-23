@@ -1,0 +1,9 @@
+If(
+    varSessionActive, 
+    DisplayMode.Disabled, 
+    If(
+        IsBlank(LookUp('Employee Time Tracking', Agent.Value = User().FullName && Date = Today() && !IsBlank('Clock-In'))),
+        DisplayMode.Edit,
+        DisplayMode.Disabled
+    )
+)

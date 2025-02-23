@@ -1,0 +1,1 @@
+"Started Work at: " & Text(varClockInTime, DateTimeFormat.ShortTime)

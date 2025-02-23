@@ -1,0 +1,5 @@
+If(
+    varSessionActive && varSysActive, 
+    DisplayMode.Edit, 
+    DisplayMode.Disabled
+)

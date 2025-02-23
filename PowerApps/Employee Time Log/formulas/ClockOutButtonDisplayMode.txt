@@ -1,0 +1,9 @@
+If(
+    varSessionActive && 
+    !varLunchActive && 
+    !varBreakActive && 
+    !varMeetingActive &&
+    !varSysActive, 
+    DisplayMode.Edit, 
+    DisplayMode.Disabled
+)

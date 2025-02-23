@@ -1,0 +1,16 @@
+// Patch the Employee Time Tracking list to set the Lunch Start time
+Patch('Employee Time Tracking', 
+    LookUp('Employee Time Tracking', Agent.Value = User().FullName && Date = Today()),
+    {
+        'Lunch Start Time': Now()
+    }
+);
+
+// Set the lunch start time to the current time
+Set(varLunchStartTime, Now()); 
+
+// Mark lunch as active
+Set(varLunchActive, true);
+
+// Start the lunch timer (this is separate from the work timer)
+Set(varLunchTimerStart, true);

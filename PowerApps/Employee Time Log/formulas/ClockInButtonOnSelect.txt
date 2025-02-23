@@ -1,0 +1,21 @@
+// Patch the Employee Time Tracking list to create a new record with Clock-In time
+Patch('Employee Time Tracking', Defaults('Employee Time Tracking'),
+  {
+    Agent: { 
+        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+        Id: LookUp('FINAL ROSTER Accuracy', 'Email Address' = User().Email).ID,
+        Value: User().FullName
+    },
+    Date: Today(),
+    'Clock-In': Now()
+  }
+);
+
+// Set the clock-in time to the current time
+Set(varClockInTime, Now()); 
+
+// Mark the session as active
+Set(varSessionActive, true);
+
+// Start the timer (this allows the timer to start tracking time)
+Set(varTimerStart, true);
