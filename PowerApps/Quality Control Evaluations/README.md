@@ -1,7 +1,7 @@
 # Quality Control Evaluations Power App
 
 ## Overview
-This Power App helps evaluate the quality of the work Quality Control Analysts do.
+This Power App helps evaluate the quality of the work Quality Control employees do.
 
 ## Files Structure
 - **Raw Power Apps Export:** `QualityControlEvaluations.zip`
