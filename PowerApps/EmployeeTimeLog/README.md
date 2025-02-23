@@ -11,7 +11,7 @@ This Power App helps record logging times for employees.
 
 
 ## Data Sources
-- Sharepoint Online Lists (`Employee Time Log`)
+- Sharepoint Online Lists (`Employee Time Tracking`)
 - Sharepoint Online Lists (`Breaks Log`)
 - Sharepoint Online Lists (`Meetings Log`)
 - Sharepoint Online Lists (`System Issues Log`)

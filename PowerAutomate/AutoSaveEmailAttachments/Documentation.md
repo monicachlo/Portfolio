@@ -1,7 +1,7 @@
 # Auto-Save Email Attachments Flow - Power Automate Documentation  
 
 ## 📌 Overview  
-This Power Automate Flow automates the saving of email attachments to a user's OneDrive location.
+This Power Automate Flow automatically saves email attachments to a user's OneDrive.
 
 ## 📂 File Structure  
 - **Raw Power Automate Flow Export:** `AutoSaveEmailAttachments.zip`

@@ -1,0 +1,23 @@
+# Break Excess Email Flow - Power Automate Documentation  
+
+## 📌 Overview  
+This Power Automate Flow automatically sends an email when an employee exceeds their allotted break time.
+
+## 📂 File Structure  
+- **Raw Power Automate Flow Export:** `BreakExcessEmail.zip`
+- **Screenshots:** `/images/`
+- **Exported JSON Definitions:** `/JSON/`
+- **Documentation.md:** `This file`
+
+## 🚀 Flow Details  
+- **Trigger:** When an item is created or modified (Sharepoint)  
+- **Actions:**  
+  - Condition check to see if a column value is greater than 0.5
+  - If yes, send an email address to the employee with the total exceeded time and reminding them what the permitted time is.
+
+## 🔗 Connections  
+- **Outlook**
+- **Sharepoint List:** `Breaks Log`  
+
+## 🛠️ JSON Export Details  
+For technical reference, the full **Flow Definition** can be found in `/JSON/FlowDefinition.json`.  
