@@ -1,0 +1,1 @@
+FDCPA_AddNotUpdt_Risk = DIVIDE(COUNTROWS(FILTER('Missing Address Accounts','Missing Address Accounts'[Status] = "Address Not Updated")), COUNTROWS('Missing Address Accounts'))

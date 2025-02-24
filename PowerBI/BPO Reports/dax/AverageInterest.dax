@@ -1,0 +1,5 @@
+Average_Interest_Amount_Waived_Above_Zero = 
+AVERAGEX(
+    FILTER(Balance_Adjustment, Balance_Adjustment[Interest Amount Waived] > 0),
+    Balance_Adjustment[Interest Amount Waived]
+)

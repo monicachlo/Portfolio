@@ -1,0 +1,7 @@
+Poss_Unrslv_Claim = COUNTROWS(
+    FILTER(
+        DiffWG, 
+        DiffWG[StatusCode] IN {
+            "F-RAVOD", "F-RABOC", "F-RADSP", "F-RAFRD", "F-RABK"
+        }
+    ))

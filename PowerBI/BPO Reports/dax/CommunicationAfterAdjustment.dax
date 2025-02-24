@@ -1,0 +1,7 @@
+Comm_Aft_Adj = 
+SWITCH(
+    Balance_Adjustment[commu_after_adjustment],
+    1, "Yes",
+    0, "No",
+    "Unknown"
+)

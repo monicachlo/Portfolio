@@ -1,0 +1,6 @@
+Idicore_used = 
+IF(
+    ISBLANK('CRA (Error 1)'[IDIcore]), 
+    BLANK(), 
+    IF('CRA (Error 1)'[IDIcore] = "1", "Yes", "No")
+)

@@ -1,0 +1,1 @@
+Company_Risk_Percentage = DIVIDE([Total_Company_Risks], COUNTROWS(Balance_Adjustment))

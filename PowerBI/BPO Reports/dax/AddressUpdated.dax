@@ -1,0 +1,1 @@
+Was_Updated = IF(ISBLANK('CRA - Address (Error 3)'[Was updated?]),BLANK(),IF('CRA - Address (Error 3)'[Was updated?] = 1, "Yes", "No"))

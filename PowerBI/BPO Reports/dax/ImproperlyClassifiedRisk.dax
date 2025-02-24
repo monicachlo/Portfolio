@@ -1,0 +1,7 @@
+improp_class_w_risk = COUNTROWS(
+                            FILTER(
+                                NSDisp, 
+                                NSDisp[Risk?] = "Yes" && 
+                                NSDisp[Properly Classified?] = "No"
+                                )
+                            )

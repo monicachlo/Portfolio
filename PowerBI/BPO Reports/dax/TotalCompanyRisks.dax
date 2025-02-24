@@ -1,0 +1,1 @@
+Total_Company_Risks = COUNTROWS(FILTER(Balance_Adjustment, (Balance_Adjustment[PND1_Status_Label] = "Not Sent" || Balance_Adjustment[PND1 other consumers] = "0" || Balance_Adjustment[Comm_Aft_Adj] = "No" || Balance_Adjustment[State_Viol] = "Yes" || Balance_Adjustment[FCRA_Viol] = "Yes")))

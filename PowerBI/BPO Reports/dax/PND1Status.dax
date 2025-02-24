@@ -1,0 +1,7 @@
+PND1_Status_Label = 
+SWITCH(
+    Balance_Adjustment[PND1/RAEODL],
+    1, "Sent",
+    0, "Not Sent",
+    "Unknown"
+)

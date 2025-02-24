@@ -1,0 +1,5 @@
+Poss_Clnt_Rsp_Pndg = COUNTROWS(
+    FILTER(
+        DiffWG, 
+        DiffWG[wrkgrp_shrt_nm] = "RAHOLD"
+    ))

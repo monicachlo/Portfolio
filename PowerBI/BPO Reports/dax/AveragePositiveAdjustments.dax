@@ -1,0 +1,1 @@
+Avg_Pos_Adj = DIVIDE([Positive_Adjustments_Count], DISTINCTCOUNT(Balance_Adjustment[Accnt_Nmbr]))

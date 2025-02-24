@@ -1,0 +1,7 @@
+FCRA_Viol = 
+SWITCH(
+    Balance_Adjustment[FCRA violation],
+    1, "Yes",
+    0, "No",
+    "Unknown"
+)

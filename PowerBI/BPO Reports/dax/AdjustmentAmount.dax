@@ -1,0 +1,12 @@
+Adjustment_Amount = 
+SUMX(
+    Balance_Adjustment,
+    IF(
+        Balance_Adjustment[Adjustment] = "Positive", 
+        1,  // Treat Positive adjustments as +1
+        IF(Balance_Adjustment[Adjustment] = "Negative", 
+            ABS(-1), // Treat Negative adjustments as +1 (absolute value of -1)
+            0   // No change for other values
+        )
+    )
+)

@@ -1,0 +1,1 @@
+Compliance_Risk_Percentage = DIVIDE([FCRA_Violation], COUNTROWS(Balance_Adjustment))

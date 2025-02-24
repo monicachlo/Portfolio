@@ -1,0 +1,1 @@
+Comp/FDCPA_Risk = DIVIDE(COUNTROWS(FILTER(DiffWG, DiffWG[Changed Workgroup To] = "RAShrdSv")), COUNTROWS(DiffWG))

@@ -1,0 +1,6 @@
+Count_Manual_SSN_Removed_Accounts = 
+CALCULATE(
+    COUNTROWS(SSN), 
+    SSN[Manual Entry] = "x", 
+    SSN[SSN removed] = "x"
+)

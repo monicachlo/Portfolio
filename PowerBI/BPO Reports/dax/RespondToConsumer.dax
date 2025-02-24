@@ -1,0 +1,7 @@
+respond_to_cons = COUNTROWS(
+                        FILTER(
+                            NSDisp,
+                            NSDisp[Docs on file?] = "Yes" &&
+                            NSDisp[Properly Classified?] = "No"
+                        )
+)

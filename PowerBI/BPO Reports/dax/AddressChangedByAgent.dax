@@ -1,0 +1,1 @@
+Address_Changed_by_Agent = IF(ISBLANK('CRA - Address (Error 3)'[Was the address changed by an agent?]),BLANK(),IF('CRA - Address (Error 3)'[Was the address changed by an agent?] = 1, "Yes", "No"))

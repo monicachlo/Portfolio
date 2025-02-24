@@ -1,0 +1,4 @@
+Count_BOC_Not_Sent = CALCULATE(
+    COUNT(Balance_Adjustment[Accnt_Nmbr]),
+    Balance_Adjustment[BOC_sent] = 0
+)

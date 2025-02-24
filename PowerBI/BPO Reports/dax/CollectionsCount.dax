@@ -1,0 +1,10 @@
+Coll_count = COUNTROWS(
+    FILTER(
+        DiffWG, 
+        DiffWG[Changed Workgroup To] IN {
+            "RAFL1", "RAFL2", "RAFL3", "RAFL4", "RAFL5", 
+            "RAHS1", "RAHS2", "RAHS3", "RAHS4", "RAHS5", 
+            "ResAdvct"
+        }
+    )
+)

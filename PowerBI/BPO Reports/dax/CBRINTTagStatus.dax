@@ -1,0 +1,7 @@
+CBRINTR_Status_Label = 
+SWITCH(
+    Balance_Adjustment[CBRINTR Added],
+    1, "Yes",
+    0, "No",
+    "Unknown"
+)

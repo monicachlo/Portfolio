@@ -1,0 +1,1 @@
+Error_Fixed = IF(ISBLANK('CRA (Error 1)'[Was the error fixed]),BLANK(), IF('CRA (Error 1)'[Was the error fixed] = 1, "Yes", "No"))

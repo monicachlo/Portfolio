@@ -1,0 +1,7 @@
+BOC_Status_Label = 
+SWITCH(
+    Balance_Adjustment[BOC_sent],
+    1, "Sent",
+    0, "Not Sent",
+    "Unknown"
+)

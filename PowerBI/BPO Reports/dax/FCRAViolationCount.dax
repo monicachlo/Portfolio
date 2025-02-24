@@ -1,0 +1,1 @@
+FCRA_Violation = COUNTROWS(FILTER(Balance_Adjustment, Balance_Adjustment[FCRA_Viol] = "Yes"))

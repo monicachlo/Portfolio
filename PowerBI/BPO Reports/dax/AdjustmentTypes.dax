@@ -1,0 +1,1 @@
+Diff_Type = IF(Balance_Adjustment[Adj_Difference] > 0, "Positive", IF(Balance_Adjustment[Adj_Difference] < 0, "Negative", "No change"))

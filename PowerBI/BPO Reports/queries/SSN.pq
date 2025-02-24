@@ -1,0 +1,9 @@
+let
+    Source = Excel.Workbook(Web.Contents("https://hunterwar.sharepoint.com/sites/SharedServices/ssqc/Reports/SSN%20Data.xlsx"), null, true),
+    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"SSN", Int64.Type}, {"Accnts", Int64.Type}, {"First_Name", type text}, {"Cnsmr_ID1", Int64.Type}, {"Cnsmr_ID2", Int64.Type}, {"Cnsmr_ID3", Int64.Type}, {"Cnsmr_ID4", Int64.Type}, {"Cnsmr_ID5", Int64.Type}, {"Wg1", type text}, {"Wg2", type text}, {"Wg3", type text}, {"Wg4", type text}, {"Wg5", type text}, {"Status_Code1", type text}, {"Status_Code2", type text}, {"Status_Code3", type text}, {"Status_Code4", type text}, {"Status_Code5", type text}, {"IDs", Int64.Type}, {"IDs2", Int64.Type}, {"IDs3", Int64.Type}, {"Linking_Status", type text}, {"HW", type text}, {"RA", type text}, {"Multiple Accounts", type text}, {"SSN removed", type text}, {"SSN valid", type text}, {"Commercial", type text}, {"multiple cons with same SSN on idiCORE", type text}, {"SSN updated per docs", type text}, {"SSN updated per idiCORE", type any}, {"Comments", type any}, {"Manual Entry", type text}, {"Human Error", type any}, {"Client", type text}, {"Date ", type text}}),
+    #"Added Custom" = Table.AddColumn(#"Changed Type", "Act_Date", each if [#"Date "] = null or [Year] = null then null
+else #date([Year], List.PositionOf({"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}, [#"Date "]) + 1, 1))
+in
+    #"Added Custom"

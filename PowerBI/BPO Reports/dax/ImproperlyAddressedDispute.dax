@@ -1,0 +1,7 @@
+Impr_Add_Disp = COUNTROWS(
+                        FILTER(
+                            NSDisp,
+                            NSDisp[Was there a previous dispute/vod request?] = "Yes" &&
+                            NSDisp[Previous dispute properly addressed?] = "No"
+                        )
+                )

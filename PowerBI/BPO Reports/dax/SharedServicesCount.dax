@@ -1,0 +1,1 @@
+SS_count = COUNTROWS(FILTER(DiffWG, DiffWG[Changed Workgroup To] = "RAShrdSv"))

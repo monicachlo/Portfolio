@@ -1,0 +1,8 @@
+PND1_oth_cons = 
+SWITCH(
+    TRUE(),
+    Balance_Adjustment[PND1 other consumers] = "NA", "N/A",
+    Balance_Adjustment[PND1 other consumers] = "1", "Sent",
+    Balance_Adjustment[PND1 other consumers] = "0", "Not Sent",
+    "Unknown"
+)

@@ -1,0 +1,9 @@
+SSN_Error_Count = 
+COUNTROWS(
+    FILTER(
+        'CRA (Error 1)', 
+        'CRA (Error 1)'[Error 1] = "Duplicated SSN" || 
+        'CRA (Error 1)'[Error 1] = "No SSN" || 
+        'CRA (Error 1)'[Error 1] = "Wrong SSN"
+    )
+)

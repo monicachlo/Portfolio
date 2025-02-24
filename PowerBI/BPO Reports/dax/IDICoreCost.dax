@@ -1,0 +1,1 @@
+Idicore_cost = IF('CRA (Error 1)'[Idicore_used] = "Yes", 0.16, 0)

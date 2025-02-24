@@ -1,0 +1,7 @@
+AUD_Status_Label = 
+SWITCH(
+    Balance_Adjustment[AUD Submitted],
+    1, "Yes",
+    0, "No",
+    "Unknown"
+)

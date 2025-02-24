@@ -1,0 +1,5 @@
+Atty_Rep_Risk = DIVIDE(
+                    COUNTROWS(FILTER(NSDisp, NSDisp[Type Of Risk] = "Attorney Representation")),
+                    COUNTROWS(NSDisp),
+                    0
+                )
